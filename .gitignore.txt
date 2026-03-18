@@ -1,0 +1,4 @@
+# R 临时文件
+.RData
+.Rhistory
+.Rproj.user
