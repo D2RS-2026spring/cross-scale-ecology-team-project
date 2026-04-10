@@ -26,6 +26,12 @@ dat$abs_Latitude <- abs(dat$Latitude)
 ```
 
 ## 图1及table2中的结果
+
+### 元分析主模型结果解读
+本研究采用分层混合效应模型，以 Fisher’s z 为效应量，检验空间尺度对本地–外来物种丰富度关系（NERR）的影响。
+结果显示：**grain 的对数与效应量呈显著正相关**，支持原文核心结论——取样面积越大，本地与外来物种丰富度正相关越强。
+整体模型截距为正，说明**在所有尺度上平均均为正相关**，不支持传统“入侵悖论”。
+
 ```{r}
 random <- list(~ 1 | Study / Case)
 metar <- rma.mv(yi = z, V = var_z, mods = ~ ln_Grain, random = random, data = dat, method = "ML")
@@ -39,6 +45,10 @@ X <- model.matrix(metar)
 P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
 100 * sum(metar$sigma2) / (sum(metar$sigma2) + (metar$k-metar$p)/sum(diag(P)))
 ```
+
+### 异质性分析解读
+小 grain 下效应量异质性极高，正负相关并存；随 grain 增大异质性降低，效应趋于稳定正值。
+说明小尺度受局部生物互作与随机波动影响大，而大尺度更能体现环境驱动的全局格局。
 
 ## 论文中图1的制作
 ```{r}
@@ -62,6 +72,11 @@ text(c(10), -1.5, c("Qm=33.83,df=1,P<0.0001"),cex=1.3,font=1,col="red")
 
 
 ## table2中habitat及Fig2B结果
+
+### 地理格局分析解读
+NERR 随纬度升高显著增强，呈现清晰的地理梯度。
+经度呈显著二次关系，在欧洲地区正相关最强，与原文全球格局一致。
+
 ```{r}
 pairs(~ abs_Latitude + Longitude + ln_Grain, data = dat)
 dat$Habitat_type<-as.factor(dat$Habitat_type)
@@ -87,6 +102,10 @@ X <- model.matrix(hab.Q)
 P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
 100 * sum(hab.Q$sigma2) / (sum(hab.Q$sigma2) + (hab.Q$k-hab.Q$p)/sum(diag(P)))
 ```
+
+### 生境与空间范围分析解读
+空间 extent 对 NERR 无显著主效应，与 grain 的交互作用复杂但无统一规律。
+不同生境类型间效应量差异不显著，说明 grain 是比生境更核心的驱动因素。 
 
 ## Fig.2b作图
 ```{r}
