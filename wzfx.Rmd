@@ -157,6 +157,12 @@ geom_errorbar(aes(ymin=estimates4-1.96*se4,
 
 ## Fig.S1作图
 
+### 漏斗图绘制说明
+本代码基于metafor包实现元分析漏斗图绘制，用于识别研究间的发表偏倚。
+1. 分别拟合多水平元分析模型（randomonly）与常规随机效应模型（randomonly2）；
+2. 绘制带90%/95%/99%置信区间的轮廓增强漏斗图，以标准误为纵轴；
+3. 添加红色实线标记合并效应量位置，直观展示效应量分布与偏倚特征。
+
 ```{r}
 randomonly <- rma.mv(yi = z, V = var_z, random = random, data = dat, method = "REML")
 randomonly2 <- rma(yi = z, vi = var_z, data = dat)
@@ -165,7 +171,7 @@ funnel(randomonly2, level=c(90, 95, 99),
        main="Standard Error")
 abline(v=randomonly$b, lty="solid",col="red",lwd=2)
 ```
-
+漏斗图展示了效应量围绕均值的分布情况。其中，垂直线代表基于随机效应模型估计的合并效应量；漏斗区域以 0 为中心。统计显著性区域由阴影区域表示：白色区域代表 p > 0.10，深灰色区域代表 0.05 < p ≤ 0.10，中灰色区域代表 0.01 < p ≤ 0.05，漏斗外的浅灰色区域代表 p ≤ 0.01。
 
 
 
