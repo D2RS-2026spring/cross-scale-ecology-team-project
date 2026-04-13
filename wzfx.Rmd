@@ -9,8 +9,20 @@ output: html_document
  - 梅良2025303120116 
  - 师鑫2025303120092
  - 陈希2025303110109
+ - 陈浩2025303110111
 
 ## 加载使用的包
+metafor   # 元分析专用包
+plyr      # 数据分组处理包（dplyr前身）
+polycor   # 多列相关系数计算包
+readr     # 快速读取文本/表格数据（tidyverse核心包）
+ggplot2   # 科研绘图包（tidyverse核心包）
+
+### 关键说明
+1.  **代码块格式**：` ```{r} ``` `是R Markdown的语法，用于在文档中嵌入可运行的R代码，点击`Run Cell`即可执行。
+2.  **包的安装**：首次使用这些包需要先安装，执行`install.packages(c("metafor","plyr","polycor","readr","ggplot2"))`（`tidyverse`可一次性安装`install.packages("tidyverse")`）。
+3.  **科研场景适配**：这套包组合完全适配农业/生态/土壤科学的数据分析流程：元分析（metafor）→ 数据处理（plyr/tidyverse）→ 统计分析（polycor）→ 可视化（ggplot2）。
+
 ```{r}
 library(metafor)
 library(plyr)
