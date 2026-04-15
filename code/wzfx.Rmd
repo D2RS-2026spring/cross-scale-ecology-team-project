@@ -2,7 +2,10 @@
 title: "多尺度下物种入侵悖论的复现研究"
 author: "跨尺度生态分析小组"
 date: "2026-03-18"
-output: html_document
+output:
+  html_document:
+    output_dir: ../outputs
+    output_file: wzfx.html
 ---
 
 ## 项目成员：
@@ -12,11 +15,11 @@ output: html_document
  - 陈浩2025303110111
 
 ## 加载使用的包
-metafor   # 元分析专用包
-plyr      # 数据分组处理包（dplyr前身）
-polycor   # 多列相关系数计算包
-readr     # 快速读取文本/表格数据（tidyverse核心包）
-ggplot2   # 科研绘图包（tidyverse核心包）
+- metafor   # 元分析专用包
+- plyr      # 数据分组处理包（dplyr前身）
+- polycor   # 多列相关系数计算包
+- readr     # 快速读取文本/表格数据（tidyverse核心包）
+- ggplot2   # 科研绘图包（tidyverse核心包）
 
 ### 关键说明
 1.  **代码块格式**：` ```{r} ``` `是R Markdown的语法，用于在文档中嵌入可运行的R代码，点击`Run Cell`即可执行。
@@ -33,7 +36,7 @@ library(ggplot2)
 
 ## 加载数据与数据前处理
 ```{r}
-dat<- read_csv("DataS2_MetaAnalysisDatabase.csv")
+dat<- read_csv("../data/DataS2_MetaAnalysisDatabase.csv")
 dat<-as.data.frame(dat)
 dat$abs_Latitude <- abs(dat$Latitude)
 ```
