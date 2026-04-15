@@ -368,9 +368,13 @@ display: none;
 </div>
 <div id="加载使用的包" class="section level2">
 <h2>加载使用的包</h2>
-<p>metafor # 元分析专用包 plyr # 数据分组处理包（dplyr前身） polycor #
-多列相关系数计算包 readr # 快速读取文本/表格数据（tidyverse核心包）
-ggplot2 # 科研绘图包（tidyverse核心包）</p>
+<ul>
+<li>metafor # 元分析专用包</li>
+<li>plyr # 数据分组处理包（dplyr前身）</li>
+<li>polycor # 多列相关系数计算包</li>
+<li>readr # 快速读取文本/表格数据（tidyverse核心包）</li>
+<li>ggplot2 # 科研绘图包（tidyverse核心包）</li>
+</ul>
 <div id="关键说明" class="section level3">
 <h3>关键说明</h3>
 <ol style="list-style-type: decimal">
@@ -390,9 +394,9 @@ library(ggplot2)</code></pre>
 </div>
 <div id="加载数据与数据前处理" class="section level2">
 <h2>加载数据与数据前处理</h2>
-<pre class="r"><code>dat&lt;- read_csv(&quot;DataS2_MetaAnalysisDatabase.csv&quot;)</code></pre>
+<pre class="r"><code>dat&lt;- read_csv(&quot;../data/DataS2_MetaAnalysisDatabase.csv&quot;)</code></pre>
 <pre><code>## Rows: 204 Columns: 14
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (5): AuthorYear, Grain_unit, Extent, Research_type, Habitat_type
 ## dbl (9): Study, Case, Year, Grain, ln_Grain, Latitude, Longitude, z, var_z

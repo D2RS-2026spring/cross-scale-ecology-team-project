@@ -2,10 +2,11 @@
 title: "多尺度下物种入侵悖论的复现研究"
 author: "跨尺度生态分析小组"
 date: "2026-03-18"
-output:
-  html_document:
-    output_dir: ../outputs
-    output_file: wzfx.html
+format:
+  html:
+    toc: true
+output-dir: ../outputs
+encoding: UTF-8
 ---
 
 ## 项目成员：
