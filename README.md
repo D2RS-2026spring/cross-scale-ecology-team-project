@@ -1,6 +1,13 @@
 # 可复现Meta分析项目
 本项目为可复现Meta分析研究，基于R语言实现，使用 `renv` 锁定完整运行环境，确保所有人均可一键复现完全一致的分析结果。
 
+## 小组成员
+- 师 &nbsp; &nbsp;鑫 2025303120092 [@hzauShixin](https://github.com/hzauShixin)  
+- 陈 &nbsp; &nbsp;浩 2025303110111 [@haochen-co](https://github.com/haochen-co)
+- 梅 &nbsp; &nbsp;良 2025303120116 [@shi-mlml](https://github.com/shi-mlml)
+- 陈 &nbsp; &nbsp;希 2025303110109 [@Doloressss770](https://github.com/Doloressss770)
+- 杨瑀珩 2025303110100 [@logicyyh](https://github.com/logicyyh)
+
 ## 研究背景
 经典“入侵悖论”认为：本地物种与外来物种丰富度的关系（NERR）在**小空间尺度呈负相关**（生物抵抗），在**大空间尺度呈正相关**（环境异质性）。
 Peng et al. (2019) 通过全球 101 篇文献、204 个案例的**分层混合效应元分析**首次严格检验该假说，发现：
