@@ -14,6 +14,7 @@ encoding: UTF-8
  - 师鑫2025303120092
  - 陈希2025303110109
  - 陈浩2025303110111
+ - 杨瑀珩2025303110100
 
 ## 加载使用的包
 - metafor   # 元分析专用包
@@ -21,6 +22,7 @@ encoding: UTF-8
 - polycor   # 多列相关系数计算包
 - readr     # 快速读取文本/表格数据（tidyverse核心包）
 - ggplot2   # 科研绘图包（tidyverse核心包）
+- maps      # 地图绘制包
 
 ### 关键说明
 1.  **代码块格式**：` ```{r} ``` `是R Markdown的语法，用于在文档中嵌入可运行的R代码，点击`Run Cell`即可执行。
@@ -33,6 +35,7 @@ library(plyr)
 library(polycor)
 library(readr)
 library(ggplot2)
+library(maps)
 ```
 
 ## 加载数据与数据前处理
@@ -178,7 +181,26 @@ abline(v=randomonly$b, lty="solid",col="red",lwd=2)
 
 漏斗图展示了效应量围绕均值的分布情况。其中，垂直线代表基于随机效应模型估计的合并效应量；漏斗区域以 0 为中心。统计显著性区域由阴影区域表示：白色区域代表 p > 0.10，深灰色区域代表 0.05 < p ≤ 0.10，中灰色区域代表 0.01 < p ≤ 0.05，漏斗外的浅灰色区域代表 p ≤ 0.01。
 
+# Figure 4a 全球研究样点分布
 
+## 代码实现
+```{r}
+# 1. 读取数据
+dat <- read.csv("DataS2_MetaAnalysisDatabase.csv", stringsAsFactors = FALSE)
+
+# 2. 定义世界地图数据
+world <- map_data("world")
+
+# 3. 绘制 Figure 4a
+ggplot() +
+  geom_polygon(data = world, aes(x = long, y = lat, group = group),
+               fill = "gray90", color = "gray50") +
+  geom_point(data = dat, aes(x = Longitude, y = Latitude),
+             color = "#A23B72", size = 1.5, alpha = 0.7) +
+  coord_fixed() +
+  labs(x = "Longitude", y = "Latitude", title = "Figure 4a") +
+  theme_classic()
+```
 
 
 
