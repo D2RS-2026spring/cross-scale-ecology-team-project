@@ -186,7 +186,7 @@ abline(v=randomonly$b, lty="solid",col="red",lwd=2)
 ## 代码实现
 ```{r}
 # 1. 读取数据
-dat <- read.csv("DataS2_MetaAnalysisDatabase.csv", stringsAsFactors = FALSE)
+dat <- read.csv("../data/DataS2_MetaAnalysisDatabase.csv", stringsAsFactors = FALSE)
 
 # 2. 定义世界地图数据
 world <- map_data("world")
